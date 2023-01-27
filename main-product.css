@@ -1,0 +1,114 @@
+#main-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
+#main-product h2 {}
+
+.main-product-item {
+    position: relative;
+    width: clamp(200px, 15vw, 400px);
+
+    transition: all .4s;
+
+}
+
+.main-product-item:hover {
+  scale: 1.1;
+}
+
+
+/* .main-product-item p {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    left: 35%;
+} */
+
+.main-product-item img {
+    width: 100%;
+    transition: all .4s;
+
+}
+
+.main-product-item img:hover {
+  opacity: .8;
+}
+
+.main-product-item a {
+  width: fit-content;
+  font-family: 'Noto Serif JP', serif;
+}
+
+/* 一番下の線 */
+.main-product-item a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 30%;
+  content: '';
+  width: 40%;
+  margin: 0 auto;
+  height: 2px;
+  background: #2C433F;
+  /* Ｘ，Ｙ   見えなくなりかけの時*/
+  transform: scale(0, 1);
+  /* The transform-origin is the point around which a transformation is applied. */
+  /* topでもbottomでも変わらないのは高さが「1」だから */
+  /* 見えなくなりかけの時だから「right」て書かないと右に消えるようにならない */
+  transform-origin: right top;
+  transition: transform .3s;
+}
+.main-product-item a:hover {
+  color: #2C433F;
+  text-decoration: none;
+
+}
+.main-product-item a:hover::after {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+
+/* https://gxy-life.com/2PC/PC/PC20210803.html */
+#topButton {
+    position: fixed;
+    visibility: hidden;
+    z-index: 98;
+    transition: all 1s;
+    transform: translateY(100px);
+
+    /* 真ん中に置きたい */
+    /* https://stackoverflow.com/questions/3157372/css-horizontal-centering-of-a-fixed-div */
+    /* 📄上と同じにする */
+    /* transform: translateX(-50%); */
+}
+
+
+#topButton.appear {
+  animation: UpAnime 0.5s forwards;
+    position: relative;
+  
+}
+
+
+@keyframes UpAnime{
+  from {
+    visibility: hidden;
+    
+	transform: translateY(100px);
+  }
+  to {
+    visibility: visible;
+	transform: translateY(0);
+  }
+}
+
+
+
+
+
+

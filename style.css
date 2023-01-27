@@ -1,0 +1,56 @@
+
+/* font-family: 'Noto Serif', serif;
+font-family: 'Noto Serif JP', serif;
+font-family: 'Oleo Script', cursive; 
+font-family: 'Indie Flower', cursive;*/
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    min-width: 100vh;
+
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Noto Serif', serif; 
+}
+
+
+
+h1, h2 {
+    font-weight: 800;
+}
+
+
+h2 {
+    margin: 5vh auto;
+}
+
+h4 {
+    margin: 2vh auto;
+}
+
+p, input {
+    line-height: 2rem;
+    font-family: 'Noto Serif JP', serif;
+
+}
+
+.v-margin {
+    margin: 10vh auto;
+}
+
+.h-padding {
+    padding: 0 10%;
+}
+
+
+@media all and (max-width: 426px) {
+    .h-padding {
+        padding: 0 5%;
+    }
+    
+}

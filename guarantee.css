@@ -1,0 +1,52 @@
+#guarantee {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#guarantee .guarantee-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+#guarantee h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+    width: 35%;
+}
+
+.guarantee-box-item {
+    width: 25%;
+}
+
+#guarantee .guarantee-box-item:not(:last-child) {
+   margin-right: 10%;
+}
+
+#guarantee span {
+    font-family: 'Indie Flower', cursive;
+    font-size: 3rem;
+
+    background-image: url(./img/pink-paint.jpg);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+@media all and (max-width:768px) {
+    #guarantee {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #guarantee h3 {
+        padding-bottom: 3rem;
+    }
+    
+}
+

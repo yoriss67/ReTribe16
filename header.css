@@ -1,0 +1,346 @@
+/* #global-head {
+    position: fixed;
+    color: #033560;
+    width: 260px;
+    text-align: center;
+    padding-top: 60px;
+    z-index: 100;
+}
+
+#sidebar {
+    font-size: 15px;
+    padding-top: 120px;
+    width: 260px;
+    height: 100%;
+    position: fixed;
+    color: #033560;
+    background: #fff;
+    text-align: center;
+}
+
+#global-nav ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+#global-nav>ul>li {
+    position: relative;
+}
+
+#global-nav a {
+    color: #033560;
+    text-decoration: none;
+    display: block;
+    padding: 15px 0;
+    transition: background-color .3s linear;
+}
+
+sub-menu
+#global-nav .sub-menu-nav {
+    position: fixed;
+    background: #033560;
+    color: #fff;
+    top: 0;
+    padding-top: 90px;
+    left: 260px;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    transition: width .2s ease-out;
+}
+
+#global-nav .sub-menu-nav a,
+#global-nav .sub-menu:hover .sub-menu-nav {
+    width: 230px;
+}
+
+nav-toggle
+#nav-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    height: 32px;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, .6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+@media screen and (max-width: 900px) {
+    #main-in {
+        padding-left: 0px;
+    }
+
+    #global-head {
+        width: 100%;
+        padding: 10px;
+        background: rgba(255, 255, 255, .8);
+        display: flex;
+    }
+
+    #sidebar {
+        position: fixed;
+        right: -300px;
+        top: 0;
+        height: 100%;
+        width: 300px;
+        color: #333;
+        background: #fff;
+        transition: .35s ease-in-out;
+    }
+
+    サブメニューは開けない
+    #global-nav .sub-menu-head:after,
+    #global-nav  {
+        display: none;
+    }
+
+    #nav-toggle {
+        display: block;
+    }
+
+    nav open
+    .open {
+        overflow: hidden;
+    }
+
+    .open #overlay {
+        display: block;
+    }
+
+    .open #sidebar {
+        transform: translate3d(-300px, 0, 0);
+    }
+
+    #nav-toggle close
+    .open #nav-toggle span:nth-child(1) {
+        top: 11px;
+        transform: rotate(45deg);
+    }
+
+    .open #nav-toggle span:nth-child(2) {
+        width: 0;
+        left: 50%;
+    }
+
+    .open #nav-toggle span:nth-child(3) {
+        top: 11px;
+        transform: rotate(-45deg);
+    }
+
+    z-index
+    #overlay {
+        z-index: 200;
+    }
+
+    #sidebar {
+        z-index: 300;
+    }
+
+    #nav-toggle {
+        z-index: 400;
+    }
+} */
+
+body,ul,li,h1,p {margin: 0;padding: 0;}
+a {text-decoration: none; color: #000;}
+li {list-style-type: none;}
+/*------------------------------------
+汎用 ↓
+------------------------------------*/
+.flex {display: flex;}
+.aic {align-items: center;}
+.jcb {justify-content: space-between;}
+/*------------------------------------
+ヘッダー a hover:下線アンダーライン ↓
+------------------------------------*/
+header a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+header ul li a {
+  font-size: 1.3rem;
+}
+
+
+/* 一番下の線 */
+header a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #2C433F;
+  /* Ｘ，Ｙ   見えなくなりかけの時*/
+  transform: scale(0, 1);
+  /* The transform-origin is the point around which a transformation is applied. */
+  /* topでもbottomでも変わらないのは高さが「1」だから */
+  /* 見えなくなりかけの時だから「right」て書かないと右に消えるようにならない */
+  transform-origin: right top;
+  transition: transform .3s;
+}
+header a:hover {
+  color: #2C433F;
+  text-decoration: none;
+
+}
+header a:hover::after {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+/*------------------------------------
+ヘッダー pcハンバーガーメニュー ↓
+------------------------------------*/
+header {
+  font-weight: 700;
+}
+
+header .pc_nav {
+  margin: auto;
+  width: 80%;
+  padding: 40px 0;
+}
+header .pc_nav div .crumbs ul li {
+  margin-right: 40px;
+}
+header .pc_nav div .crumbs ul li:last-of-type {
+  margin-right: 0;
+}
+/*------------------------------------
+ヘッダー spハンバーガーメニュー ↓
+------------------------------------*/
+header .sp_nav {
+  text-align: center;
+}
+.sidemenu {
+  height: 100vh;
+  height: 100%;
+
+  padding-top: 100px;
+  position: fixed;
+  right: -40%; /*メニュー幅*/
+  transition: all 0.6s;
+  top: 0;
+  width: 40%; /*メニュー幅*/
+  z-index: 100;
+  background-color: #fff;
+
+}
+
+/* 🤔 */
+/* .pc_no {
+
+    display: inline-block;
+} */
+
+
+.sidemenu nav ul li {
+  padding: 20px;
+}
+.hamburger {
+  cursor: pointer;
+  height: 60px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 60px;
+  z-index: 101;
+}
+.hamburger span {
+  background-color: #000;
+  height: 4px;
+  left: 15px;
+  position: absolute;
+  transition: all 0.6s;
+  width: 30px;
+}
+.hamburger_linetop {
+  top: 20px;
+}
+.hamburger_linecenter {
+  top: 29px;
+}
+.hamburger_linebottom {
+  top: 38px;
+}
+/*------------------------------------
+メニュークリックした後 ↓　🥰🥰🥰なるほど！
+------------------------------------*/
+.nav_open .sidemenu {
+  right: 0;
+}
+.nav_open .hamburger_linetop {
+  top: 26px;
+  transform: rotate(45deg);
+}
+.nav_open .hamburger_linecenter {
+  left: 50%;
+  width: 0;
+}
+.nav_open .hamburger_linebottom {
+  top: 26px;
+  transform: rotate(-45deg);
+}
+.nav_open .overlay {
+  opacity: 0.8;
+  visibility: visible;
+}
+
+/* 自作 */
+.nav_open .hamburger {
+  position: fixed;
+}
+/*------------------------------------
+メニュークリック後メニュー外の背景 ↓
+------------------------------------*/
+.overlay {
+  background-color: #000;
+  cursor: pointer;
+  height: 100vh;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: all 0.6s;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 99;
+}
+
+/* 自作 */
+header li a {
+    font-family: 'Noto Serif', serif;
+}
+
+
+/*------------------------------------
+@media screen 1000px~999px ↓
+------------------------------------*/
+@media screen and (max-width: 1000px) {
+  .sp_no {
+    display: none;
+  }
+  .sidemenu {
+    right: -50%; /*メニュー幅*/
+    width: 50%; /*メニュー幅*/
+  }
+}
+@media screen and (min-width: 999px) {
+  .pc_no {
+    display: none;
+  }
+}

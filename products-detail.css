@@ -1,0 +1,118 @@
+#products-detail {
+
+}
+
+.products-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.products-box-item {
+    width: 180px;
+    max-width: 250px;
+    margin-bottom: 50px;
+    position: relative;
+
+    opacity: 0;
+
+    transition: all .4s;
+
+}
+
+.products-box-item:hover {
+  scale: 1.1;
+}
+
+
+
+
+.products-box-item img {
+    width: 100%;
+    object-fit: cover;
+    /* aspect-ratioはimg,iframeで使う */
+    aspect-ratio: 2/3;
+
+    transition: all .4s;
+
+}
+
+.products-box-item img:hover {
+  opacity: .8;
+  }
+  
+
+.products-box-item a {
+    font-family: 'Noto Serif JP', serif;
+  }
+  
+
+/* 一番下の線 */
+.products-box-item a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 25%;
+    content: '';
+    width: 50%;
+    margin: 0 auto;
+    height: 2px;
+    background: #2C433F;
+    /* Ｘ，Ｙ   見えなくなりかけの時*/
+    transform: scale(0, 1);
+    /* The transform-origin is the point around which a transformation is applied. */
+    /* topでもbottomでも変わらないのは高さが「1」だから */
+    /* 見えなくなりかけの時だから「right」て書かないと右に消えるようにならない */
+    transform-origin: right top;
+    transition: transform .3s;
+  }
+  .products-box-item a:hover {
+    color: #2C433F;
+    text-decoration: none;
+  
+  }
+  .products-box-item a:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+  
+
+@media all and (max-width: 426px) {
+    .products-box {
+        justify-content: space-around;
+    }
+}
+
+
+
+.fadeUp{
+  animation-name:fadeUpAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  }
+  
+  @keyframes fadeUpAnime{
+    from {
+      opacity: 0;
+    transform: translateY(100px);
+    }
+  
+    to {
+      opacity: 1;
+    transform: translateY(0);
+    }
+  }
+  
+
+  /* .f2 {
+    animation-delay: 0.2s;
+  }
+
+  .f3 {
+    animation-delay: 0.4s;
+  }
+
+  .f4 {
+    animation-delay: 0.6s;
+  } */
